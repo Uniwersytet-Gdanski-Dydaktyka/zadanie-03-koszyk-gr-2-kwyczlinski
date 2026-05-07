@@ -23,7 +23,7 @@ Promocje mogą się zmieniać w trakcie działania programu, tj. mogą się poja
 
 Towary w koszyku powinny być posegregowane malejąco według ceny, 
 a potem według kolejności alfabetycznej nazw produktów. 
-Sposób sortowania może produktów może się zmieniać w trakcie działania programu. 
+Sposób sortowania produktów może się zmieniać w trakcie działania programu. 
 
 Twoim zadaniem jest zaimplementowanie logiki, operującej na obiektach typu ``Product``, 
 która umożliwiałaby:

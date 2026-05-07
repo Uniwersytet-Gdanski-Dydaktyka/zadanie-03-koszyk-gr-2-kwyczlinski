@@ -1,0 +1,47 @@
+@startuml ClassDiagram
+interface Basket {
+  +addProduct(p: Product)
+  +getTotal(): double
+  +applyPromotions(List<Promotion>)
+  +setSortComparator(Comparator<Product>)
+  +getProducts(): List<Product>
+}
+
+interface ProductQuery {
+  +getCheapestProduct(): Optional<Product>
+  +getPriciestProduct(): Optional<Product>
+  +getNCheapestProducts(n: int): List<Product>
+  +getNPriciestProducts(n: int): List<Product>
+}
+
+class Product {
+  -code: String
+  -name: String
+  -price: double
+  -discountPrice: double
+  +withDiscountPrice(d: double): Product
+  +resetDiscount(): Product
+}
+
+class ShoppingBasket {
+  -basket: List<Product>
+  -sortComparator: Comparator<Product>
+  -{static} DEFAULT_SORT: Comparator<Product>
+  +sort()
+}
+
+interface Promotion {
+  +apply(List<Product>): List<Product>
+  +name(): String
+}
+
+class DiscountOver300Promotion implements Promotion
+class ThirdProductFreePromotion implements Promotion
+class FreeMugOver200Promotion implements Promotion
+class OneTimeSingleItem30PercentOffPromotion implements Promotion
+
+ShoppingBasket ..|> Basket
+ShoppingBasket ..|> ProductQuery
+ShoppingBasket ..> Product
+ShoppingBasket ..> Promotion
+@enduml
