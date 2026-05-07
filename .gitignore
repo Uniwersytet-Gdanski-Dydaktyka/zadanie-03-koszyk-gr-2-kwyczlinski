@@ -24,6 +24,8 @@ hs_err_pid*
 
 # IDE folders
 .vscode/
+
+# Other tools
 .bloop/
 .metals/
 .mvn/
